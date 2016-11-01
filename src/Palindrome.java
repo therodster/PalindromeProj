@@ -14,8 +14,7 @@ public class Palindrome {
 		/** Initializes vars */
 		Scanner scanner;
 		String userInput;
-		char[] userInputArray;
-
+		
 		/** Prompts the user */
 		System.out.println("Enter something. Maybe it's a Palindrome, maybe not...");
 
@@ -24,8 +23,7 @@ public class Palindrome {
 		userInput = scanner.nextLine();
 
 		/** Converts the String class to primitive type char (Works with words and decimals too!) */
-		userInputArray = userInput.toCharArray();
-		checker(userInputArray);
+		checker(userInput);
 
 		/** Closes the scanner */
 		scanner.close();
@@ -36,17 +34,15 @@ public class Palindrome {
 	@param array	The array that is being checked
 	@return 		Returns the true if true and false if false
 	*/
-	public static void checker(char[] array) {
+	public static void checker(String s) {
+	
+		boolean returnVal = true;
 
-		boolean returnVal;
-		returnVal = false;
-
-		for (int i = 0; i < (int)(array.length / 2); i++) {
-			if (array[i] == array[(array.length - 1) - i]) returnVal = true;
-			else {
+		for(int i = 0; i < s.length(); i++){
+			if(s.charAt(i) != s.charAt(s.length()-i-1)){
 				returnVal = false;
 				break;
-			}
+			}			
 		}
 
 		/** Notifies the user */
